@@ -4,9 +4,11 @@ import Login from '../../Login';
 
 export default connect(
     (state:any)=>{
+        console.log(state.loginData.username,'username');
         return {
             token: state.loginData.token,
-            usertype: state.loginData.usertype
+            usertype: state.loginData.usertype,
+            username: state.loginData.username
         }
     },
     (dispatch)=>{

@@ -11,11 +11,11 @@ export const loginReducer=(state={username:"NA",token:"NA",usertype:"NA",message
     }
 }
 
-export const employeeData = (state=[],action)=>{
+export const employeeData = (state={employee:'NA'},action)=>{
     switch(action.type) {
-        case "employee_Action":
-            console.log(action.data)
-            return {...action.data}
+        case "EMPLOYEE_ACTION":
+            console.log(action.data.employee)
+            return {employee:action.data.employee}
         default:
             return state;
     }

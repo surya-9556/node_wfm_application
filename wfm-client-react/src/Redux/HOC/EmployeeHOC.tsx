@@ -3,16 +3,16 @@ import { bindActionCreators } from 'redux';
 import ManagerHome from '../../Managers/Home';
 
 export default connect(
-    (state:any)=>{
-        console.log(state.EmployeeDetails.data)
+    (data:any)=>{
+        console.log(data.EmployeeDetails)
         return {
-            employee:state.EmployeeDetails.data
+            employee:data.EmployeeDetails.employee
         }
     },
     (dispatch)=>{
         return bindActionCreators({
-            getEmpDetails:(employee:any)=>{
-                return {type: "employee_Details",data:employee}
+            getEmpDetails:()=>{
+                return {type: "EMPLOYEE_DETAILS"}
             }
         },dispatch)
     }

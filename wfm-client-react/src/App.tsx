@@ -4,6 +4,7 @@ import './App.css';
 import {BrowserRouter as Router,Route,Switch,Redirect} from 'react-router-dom'
 import ProtectedRoute from './ProtectedRoute';
 import LoginHOC from './Redux/HOC/LoginHOC';
+import EmployeeHOC from './Redux/HOC/EmployeeHOC';
 
 const App=()=>{
      return(
@@ -13,10 +14,10 @@ const App=()=>{
           <LoginHOC/>
         </Route>
         <ProtectedRoute path="/home">
-          
         </ProtectedRoute>
         <Route exact path="/">
           <Redirect exact from="/" to="home" />
+          <EmployeeHOC />
         </Route>
         <Route path="*">
           <Redirect exact from="/" to="home" />

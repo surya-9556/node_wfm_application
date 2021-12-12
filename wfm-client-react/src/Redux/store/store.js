@@ -13,4 +13,4 @@ const appData = combineReducers({
 const sagaMiddleware=createSagaMiddleware()
 export const store=createStore(appData,applyMiddleware(sagaMiddleware))
 sagaMiddleware.run(rootSaga)
-store.dispatch({type:"employee_Details"})
+store.dispatch({type:"EMPLOYEE_DETAILS"})
