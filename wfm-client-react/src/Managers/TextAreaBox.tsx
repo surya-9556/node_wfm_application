@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import {Button, Form} from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 
 const manager = localStorage.getItem("username")
@@ -9,7 +10,7 @@ const TextAreaBox = ({emp}:any,{id}:any) =>{
     console.log(emp);
     console.log(id)
     const [message,setMessage] = useState('')
-    const [employee_id] = useState(1009)
+    const [employee_id] = useState(1019)
     const getInputManager = async (e:any)=>{
         e.preventDefault();
         const body = {employee_id,manager,message};
@@ -27,10 +28,9 @@ const TextAreaBox = ({emp}:any,{id}:any) =>{
                 <Form.Group>
                 <h4><b>Please confirm the soft lock that contains 1000 words</b></h4>
                 <h5><i>Please enter the message</i></h5>
-                    <Form.Label>Employee Id:-</Form.Label>
                 </Form.Group>
                 <textarea  className="form-control" onChange={e=> setMessage(e.target.value)} id="exampleFormControlTextarea1" />
-                <Button className="btn btn-primary" type='submit'>
+                <Button className="btn btn-secondary" type='submit'>
                     Submit
                 </Button>
             </Form>

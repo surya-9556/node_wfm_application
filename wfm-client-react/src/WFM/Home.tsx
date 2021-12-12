@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from "react";
 import {Table, Button, Modal, OverlayTrigger, Tooltip} from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import TextAreaBox from "./TextAreaBox";
 import axios from 'axios';
 
@@ -10,6 +11,16 @@ const WFMHome=()=>{
 
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
+
+  const [id,setId] = useState(0)
+
+  const handleClickEvent = (e:any) => {
+      setShow(!show)
+      if(show !== true){
+          const id = e.target.id;
+          setId(id)
+      }
+  }
 
   const [wfm,setWfm]=useState<any>([{}]);
   const getWfmManager = async ()=>{
@@ -29,10 +40,10 @@ const WFMHome=()=>{
   return (
     <>
     <div>
-        <h1>WFM Manager</h1>
+        <h1 style={{textAlign: "center",}}><i>WFM Manager</i></h1>
     </div>
     <div>
-    <Table striped bordered hover>
+    <Table responsive>
         <thead>
             <tr>
                 <th>Employee_ID</th>
@@ -56,7 +67,7 @@ const WFMHome=()=>{
                                 SoftLock
                             </Tooltip>
                         }>
-                            <Button onClick={handleShow} className="btn text-warning btn-act" data-toggle="modal">
+                            <Button onClick={handleClickEvent} className="btn text-secondary btn-act" data-toggle="modal">
                                 SoftLock
                             </Button>
                     </OverlayTrigger>
@@ -68,7 +79,7 @@ const WFMHome=()=>{
                             </Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            <TextAreaBox wfm = {wfm}/>
+                            <TextAreaBox wfm = {wfm} id = {id}/>
                         </Modal.Body>
                         <Modal.Footer>
                             <Button variant="secondary" onClick={handleClose}>

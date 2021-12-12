@@ -1,5 +1,7 @@
 import React,{useState,useEffect} from "react";
 import {Table, Button, Modal, OverlayTrigger, Tooltip} from "react-bootstrap";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import TextAreaBox from "./TextAreaBox";
 import LockIcon from '@mui/icons-material/Lock';
 import axios from 'axios';
@@ -31,9 +33,9 @@ const ManagerHome=()=>{
   return (
     <>
     <div>
-        <h1>Manager</h1>
+        <h1 style={{textAlign: "center"}}><i>Manager</i></h1>
     </div>
-    <Table striped bordered hover>
+    <Table responsive>
         <thead>
             <tr>
                 <th>Employee_ID</th>
@@ -58,7 +60,7 @@ const ManagerHome=()=>{
                                 {emp.employee_id}
                             </Tooltip>
                         }>
-                    <Button onClick={handleShow} className="btn text-warning btn-act" data-toggle="modal">
+                    <Button onClick={handleShow} className="btn text-secondary btn-primary" data-toggle="modal">
                         <LockIcon />
                             SoftLock
                     </Button>

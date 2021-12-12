@@ -4,7 +4,9 @@ import {Button, Form} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 
-const TextAreaBox = ({wfm}:any) =>{
+const TextAreaBox = ({wfm}:any,{id}:any) =>{
+
+    console.log(id,"id")
     const lockid = wfm[0]?.lockid;
 
     const[wfm_id] = useState(wfm[0]?.employee_id);
